@@ -38,10 +38,22 @@ DELETE
 abc # [Compiles to DELETE FROM abc]
 abc # a>10 [Compiles to DELETE FROM abc WHERE a>10]
 
+===================================================
 MinQL also accepts variables.For Example :
-&field <- users
+-----------------
+|&field <- users |
+-----------------
 prompts user for field
-so,
-&field <- &table
-is a generic query, which is determined dynamically.
+
+We may also put to the Console, Or Graphical Alert 
+using @CONSOLE,@GTK Redirectors. 
+-------------------------------------------
+| Hello World My Name is &name -> @CONSOLE|
+-------------------------------------------
+
+Similarly We can get inputs from the @CONSOLE,@GTK
+
+[!Heads Up @GTK Requires pyGTK2.0!]
+
+==================================================
 
