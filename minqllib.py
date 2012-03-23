@@ -7,6 +7,12 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 import random
+def prettyprint(list):
+	ret =  "-"*15
+	for i in list:
+		for j in i:
+			ret += j
+		ret += ""
 
 def getQuickDialog(message,dianame):
         label = gtk.Label(message)
@@ -67,7 +73,7 @@ def preprocess(input):
 	
 	return input
 		
-def execute(input):
+def execute(input,mode = "Run"):
 	query = ""
 	con = MySQLdb.Connect(host="127.0.0.1", port=3306, user="root", passwd="1234" , db="demo")
 	cursor = con.cursor()
@@ -113,7 +119,8 @@ def execute(input):
 		elif '=' in y[0]:
 			query = "UPDATE "+ y[1] + " SET " + y[0]  
 			if "|" in x:
-				t = x.split("|")
+				t = y[1].split("|")
+				query = "UPDATE "+ t[0] + " SET " + y[0]  
 				wc = " WHERE "+ t[1]
 				query += wc
 			
@@ -140,22 +147,23 @@ def execute(input):
 		
 	
 	if query != "":
-		ret = {}	
-		ret["query"] = query
-		cursor.execute(query)
-		results = cursor.fetchall()
-		ret["results"] = results
-		con.close()
-		retr = []
-		for ix in ret["results"]:
-			retr.append(list(ix))
-		ret["results"] = retr
-		
-		if len(inputArr) > 1:
-			symbols[inputArr[1].strip(" \n")] = retr
-		
-		return ret
-		
+		if mode != "Compile":
+			ret = {}	
+			ret["query"] = query
+			cursor.execute(query)
+			results = cursor.fetchall()
+			ret["results"] = results
+			con.close()
+			retr = []
+			for ix in ret["results"]:
+				retr.append(list(ix))
+			ret["results"] = retr
+			
+			if len(inputArr) > 1:
+				symbols[inputArr[1].strip(" \n")] = retr
+			return ret
+		else:
+			return query		
 	return ""
 
 
