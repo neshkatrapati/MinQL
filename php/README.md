@@ -1,7 +1,7 @@
 PHP MinQL DOCS
 ============
 
-**REFER SYNTAX OF MinQL in the Main README Page**
+**REFER SYNTAX OF MinQL in the Main [README](https://github.com/freeEdu/MinQL/blob/master/README.md) Page**
 
 ## Using MinQL in PHP
 
