@@ -1,6 +1,6 @@
 **MinQL** (Pronounced Min - cool) is a minimalistic query language based on the MySQL's Query Language. MinQL is achieved through python and php but, script for ruby also will be available shortly. The syntax goes as follows
 
-*!ALERT RUBY BINARIES ARE NOT YET READY*
+**ALERT RUBY BINARIES ARE NOT YET READY!!**
 
 
 Running In Interactive Mode
@@ -67,7 +67,7 @@ using @CONSOLE,@GTK Redirectors.
 
 Similarly We can get inputs from the @CONSOLE,@GTK
 
-[!Heads Up @GTK Requires pyGTK2.0!]
+**Heads Up @GTK Requires pyGTK2.0!**
 
 See Also
 ======================
