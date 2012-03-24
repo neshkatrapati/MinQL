@@ -8,8 +8,8 @@ Running In Interactive Mode
 For now only python minql can do this via the minqli script.
 
 ---------------------------------------------------------
-|[/home]$ python minqli.py -->> [For Interactive Console]             |  
-|[/home]$ python minqli.py --file filename.minql -->> [For File Input] | 
+[/home]$ python minqli.py -->> [For Interactive Console]               
+[/home]$ python minqli.py --file filename.minql -->> [For File Input]  
 ---------------------------------------------------------------
 
 Syntax
@@ -51,8 +51,8 @@ DELETE
 Features
 ===================================================
 **MinQL** also accepts variables. For Example :
------------------
-|&field <- users |
+
+&field <- users 
 -----------------
 prompts user for field in Interactive script or takes an array of variables in non interactive script
 
@@ -61,8 +61,8 @@ prompts user for field in Interactive script or takes an array of variables in n
 We may also put to the Console, Or Graphical Alert 
 using @CONSOLE,@GTK Redirectors. 
 
--------------------------------------------
-| Hello World My Name is &name -> @CONSOLE   | 
+
+ Hello World My Name is &name -> @CONSOLE
 -------------------------------------------
 
 Similarly We can get inputs from the @CONSOLE,@GTK
