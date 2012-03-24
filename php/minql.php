@@ -71,10 +71,11 @@ function minql_compile($input, $variables) {
             $wc = "WHERE " . $t[1];
             $query = $t[0] . " " . $wc;
             $query = "SELECT " . str_replace("<-", " FROM ", $query);
-            $query = str_replace("(", " ORDER BY( ", $query);
+          
+        }
+          $query = str_replace("(", " ORDER BY( ", $query);
             $query = str_replace("[", " GROUP BY( ", $query);
             $query = str_replace("]", ")", $query);
-        }
     } else if (strpos($input, "->") !== false) {
 
         $x = str_replace("->", " ", $input);
