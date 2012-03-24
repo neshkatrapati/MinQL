@@ -60,7 +60,7 @@ function minql_show_symbols() {
     var_dump($symbols);
 }
 
-function minql_compile($input, $variables) {
+function minql_compile($input, $variables = array()) {
     GLOBAL $symbols;
     $query = "";
 
