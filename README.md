@@ -1,15 +1,19 @@
-MinQL [Pronounced Min - cool] is a minimalistic query language based on the MySQL's Query Language. MinQL is achieved through python but, script for ruby also will be available shortly. The syntax goes as follows
+**MinQL** (Pronounced Min - cool) is a minimalistic query language based on the MySQL's Query Language. MinQL is achieved through python and php but, script for ruby also will be available shortly. The syntax goes as follows
 
-[!ALERT RUBY BINARIES ARE NOT YET READY]
-[!ALERT Heads-Up! MinQL-Python Requires MySQLdb Extension]
+*!ALERT RUBY BINARIES ARE NOT YET READY*
 
-===============RUNNING==================================================
-[/home]$ python minqli.py -->> [For Interactive Console]               |
-[/home]$ python minqli.py --file filename.minql -->> [For File Input]  |
-========================================================================
+
+Running In Interactive Mode
+========================
+For now only python minql can do this via the minqli script.
+[/home]$ python minqli.py -->> [For Interactive Console]               
+[/home]$ python minqli.py --file filename.minql -->> [For File Input]  
+
+Syntax
+======
 
 SELECT QUERY
-================
+-----------
 
 * <- table [compiles to  "SELECT * FROM table"]
 * <- table | age > 25  [ Compiles to "SELECT * FROM table WHERE age>25"]
