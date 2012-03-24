@@ -6,7 +6,7 @@ symbols = {}
 
 	
 #MinQL String Preprocessor, Responsible for taking inputs and managing variables
-def preprocess(input,vars = []):
+def minql_preprocess(input,vars = []):
 	iar = re.split("[\s|=#.,]",input)
 	ret = []
 	i = 0
@@ -29,7 +29,7 @@ def preprocess(input,vars = []):
 	
 	return input
 #MinQL Query Compiler, Returns a MySQL Query	
-def compile(input,vars = []):
+def minql_compile(input,vars = []):
 	query = ""
 	
 	#Checking for redirectable outputs such as * <- abc => demoVar
@@ -37,7 +37,7 @@ def compile(input,vars = []):
 	input = inputArr[0].strip(" \n\t")
 	
 	#Preprocessing the Query
-	input = preprocess(input,vars)
+	input = minql_preprocess(input,vars)
 	
 	#Initializing output variable 
 	if len(inputArr) > 1:
@@ -102,10 +102,11 @@ def compile(input,vars = []):
 	return query		
 
 #Compile from File	
-def fromfile(filename):
+def minql_fromfile(filename):
 	file = open(filename)
 	for line in file.readlines():
 		if line != "":
 			print compile(line)
-		
 
+def minql_show_symbols():
+	print symbols
