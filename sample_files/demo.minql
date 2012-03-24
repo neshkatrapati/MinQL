@@ -1,0 +1,4 @@
+* <- abc
+* <- demo
+value <- @CONSOLE
+value -> @CONSOLE
