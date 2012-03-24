@@ -53,6 +53,7 @@ Features
 **MinQL** also accepts variables. For Example :
 
 &field <- users 
+
 -----------------
 prompts user for field in Interactive script or takes an array of variables in non interactive script
 
@@ -63,6 +64,7 @@ using @CONSOLE,@GTK Redirectors.
 
 
  Hello World My Name is &name -> @CONSOLE
+ 
 -------------------------------------------
 
 Similarly We can get inputs from the @CONSOLE,@GTK
