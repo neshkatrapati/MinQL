@@ -15,12 +15,12 @@ Syntax
 SELECT QUERY
 -----------
 
-* <- table [compiles to  "SELECT * FROM table"]
-* <- table | age > 25  [ Compiles to "SELECT * FROM table WHERE age>25"]
+`* <- table [compiles to  "SELECT * FROM table"]`
+`* <- table | age > 25  [ Compiles to "SELECT * FROM table WHERE age>25"]`
 
-* <- table (field)  [ Compiles to "SELECT * FROM table ORDER BY (field)"]
+`* <- table (field)  [ Compiles to "SELECT * FROM table ORDER BY (field)"]`
 
-* <- table [field]  [ Compiles to "SELECT * FROM table GROUP BY (field)"]
+`* <- table [field]  [ Compiles to "SELECT * FROM table GROUP BY (field)"]`
 CREATE
 ==================
 
