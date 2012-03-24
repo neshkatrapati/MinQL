@@ -71,6 +71,6 @@ Similarly We can get inputs from the @CONSOLE,@GTK
 
 See Also
 ======================
-* Docs for Python 
+* [Docs for Python]  (https://github.com/freeEdu/MinQL/blob/master/python/README.md)
 * [Docs for PHP] (https://github.com/freeEdu/MinQL/blob/master/php/README.md)
 
