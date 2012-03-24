@@ -12,35 +12,36 @@ For now only python minql can do this via the minqli script.
 Syntax
 ======
 
-SELECT QUERY
------------
+SELECT 
+------
 
-`* <- table [compiles to  "SELECT * FROM table"]`
-`* <- table | age > 25  [ Compiles to "SELECT * FROM table WHERE age>25"]`
+`* <- table`  - compiles to  `SELECT * FROM table`
+`* <- table | age > 25`  Compiles to `SELECT * FROM table WHERE age>25`
 
-`* <- table (field)  [ Compiles to "SELECT * FROM table ORDER BY (field)"]`
+`* <- table (field)` Compiles to `SELECT * FROM table ORDER BY (field)`
 
-`* <- table [field]  [ Compiles to "SELECT * FROM table GROUP BY (field)"]`
-CREATE
-==================
+`* <- table [field]`  Compiles to `SELECT * FROM table GROUP BY (field)`
 
-abc -> a:int,b:text [Compiles to CREATE TABLE abc (a int,b text)]
+CREATE 
+-----
+
+`abc -> a:int,b:text` Compiles to `CREATE TABLE abc (a int,b text)`
 
 INSERT
-==================
+------
 
-10,20,30 -> numbers [compiles to INSERT INTO numbers VALUES(10,20,30)]
+`10,20,30 -> numbers` Compiles to `INSERT INTO numbers VALUES(10,20,30)`
 
 UPDATE
-==================
+-----
 
-a=a+10 -> mytab | a>10 [compiles to UPDATE mytab SET a=a+10 where a>10]
+`a=a+10 -> mytab | a>10` Compiles to `UPDATE mytab SET a=a+10 where a>10`
 
 DELETE
-=====================
+-----
 
-abc # [Compiles to DELETE FROM abc]
-abc # a>10 [Compiles to DELETE FROM abc WHERE a>10]
+`abc #` Compiles to `DELETE FROM abc`
+`abc # a>10` Compiles to `DELETE FROM abc WHERE a>10`
 
 ===================================================
 MinQL also accepts variables.For Example :
