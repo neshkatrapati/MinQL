@@ -15,12 +15,13 @@ Syntax
 SELECT 
 ------
 
-`* <- table`  - compiles to  `SELECT * FROM table`
-`* <- table | age > 25`  Compiles to `SELECT * FROM table WHERE age>25`
+* `* <- table`  - compiles to  `SELECT * FROM table`
 
-`* <- table (field)` Compiles to `SELECT * FROM table ORDER BY (field)`
+* `* <- table | age > 25`  Compiles to `SELECT * FROM table WHERE age>25`
 
-`* <- table [field]`  Compiles to `SELECT * FROM table GROUP BY (field)`
+* `* <- table (field)` Compiles to `SELECT * FROM table ORDER BY (field)`
+
+* `* <- table [field]`  Compiles to `SELECT * FROM table GROUP BY (field)`
 
 CREATE 
 -----
@@ -40,8 +41,9 @@ UPDATE
 DELETE
 -----
 
-`abc #` Compiles to `DELETE FROM abc`
-`abc # a>10` Compiles to `DELETE FROM abc WHERE a>10`
+* `abc #` Compiles to `DELETE FROM abc`
+
+* `abc # a>10` Compiles to `DELETE FROM abc WHERE a>10`
 
 ===================================================
 MinQL also accepts variables.For Example :
