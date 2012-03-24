@@ -15,7 +15,7 @@ Syntax
 SELECT 
 ------
 
-* `* <- table`  - compiles to  `SELECT * FROM table`
+* `* <- table`  - Compiles to  `SELECT * FROM table`
 
 * `* <- table | age > 25`  Compiles to `SELECT * FROM table WHERE age>25`
 
@@ -45,12 +45,15 @@ DELETE
 
 * `abc # a>10` Compiles to `DELETE FROM abc WHERE a>10`
 
+Features
 ===================================================
-MinQL also accepts variables.For Example :
+**MinQL** also accepts variables. For Example :
 -----------------
 |&field <- users |
 -----------------
-prompts user for field
+prompts user for field in Interactive script or takes an array of variables in non interactive script
+
+### Feature in Interactive Script
 
 We may also put to the Console, Or Graphical Alert 
 using @CONSOLE,@GTK Redirectors. 
@@ -62,5 +65,8 @@ Similarly We can get inputs from the @CONSOLE,@GTK
 
 [!Heads Up @GTK Requires pyGTK2.0!]
 
-==================================================
+See Also
+======================
+* Docs for Python 
+* Docs for PHP
 
