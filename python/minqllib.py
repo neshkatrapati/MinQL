@@ -90,10 +90,10 @@ def preprocess(input):
 	
 	return input
 		
-def execute(input,mode = "Run"):
+def execute(input,con,mode = "Run"):
 	query = ""
-	con = MySQLdb.Connect(host="127.0.0.1", port=3306, user="root", passwd="1234" , db="demo")
-	cursor = con.cursor()
+	
+	
 	inputArr = re.split("=>",input)
 	input = inputArr[0].strip(" \n\t")
 	input = preprocess(input)
@@ -164,9 +164,10 @@ def execute(input,mode = "Run"):
 		
 	
 	if query != "":
-		if mode != "Compile":
+		if mode != "compile":
 			ret = {}	
 			ret["query"] = query
+			cursor = con.cursor()
 			cursor.execute(query)
 			results = cursor.fetchall()
 			ret["results"] = results
