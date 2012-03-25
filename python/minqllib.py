@@ -118,6 +118,8 @@ def execute(input,cparams,mode = "Run"):
 				query = t[0] + " " + wc
 				query = "SELECT " + re.sub(r'\s<-\s',' FROM ',query)
 			query = query.replace('(','ORDER BY (')
+			query = query.replace('{','LIMIT ')
+			query = query.replace('}',' ')
 			query = query.replace('[','GROUP BY (')
 			query = query.replace(']',')')
 		
@@ -160,6 +162,23 @@ def execute(input,cparams,mode = "Run"):
 			query = "DELETE FROM "+ x[0] + " WHERE " + x[1]
 		else:
 			query = "DELETE FROM "+ x[0]
+	elif '$' in input:
+		validator = True
+		
+		query = input
+		if "|" in input:
+			t = input.split("|")
+			wc = "WHERE "+ t[1]
+			query = t[0] + " " + wc
+			
+		query = query.replace('$TABLES','SHOW TABLES')
+		query = query.replace('$DATABASES','SHOW DATABASES')
+		query = query.replace('(','ORDER BY (')
+		query = query.replace('[','GROUP BY (')
+		query = query.replace(']',')')
+		
+		print query
+		
 	else:
 		if len(inputArr) > 1:
 			symbols[inputArr[1].strip(" \n")] = input

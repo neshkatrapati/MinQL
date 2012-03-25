@@ -98,10 +98,10 @@ class  MinQL(Cmd):
 				return
 		
 		get = execute(line,self.cparams,self.mode)
-		if get != False and self.mode == "run":
+		if get != False and get != -1 and self.mode == "run":
 			print "Compiled Query: "+get["query"]
 			prettyprint(get["results"])
-		elif get != False:
+		elif get != False and get!=-1:
 			print get
 		else:
 			print "Un recognized Query/Command"
