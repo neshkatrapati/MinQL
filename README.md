@@ -27,6 +27,8 @@ SELECT
 
 * `* <- table [field]`  Compiles to `SELECT * FROM table GROUP BY (field)`
 
+* `* <- table {a,b}`  Compiles to `SELECT * FROM table LIMIT a,b`
+
 CREATE 
 -----
 
