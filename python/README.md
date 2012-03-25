@@ -10,5 +10,5 @@ Python MinQL DOCS
 	- `minql_compile(query [,variables])` where variables is an array of variables used in the query
 	- Returns a MySQL query
 * Call minql_fromfile method to compile MinQL from a file
-	- `minql_compile(filename)` **No Support for variables here**
+	- `minql_fromfile(filename)` **No Support for variables here**
 * Call minql_show_symbols to show the symbol table
