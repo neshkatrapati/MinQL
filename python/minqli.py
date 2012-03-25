@@ -56,10 +56,33 @@ class  MinQL(Cmd):
 	def preloop(self):
 		print "Welcome to MinQL CMD Line Interpreter. Press Help for options."
 
+	def do_store(self,arg):
+		cparams = re.split("\s*",arg)
+		try:
+			con = MySQLdb.Connect(host=cparams[1], port=3306, user=cparams[2], passwd=cparams[3] , db=cparams[4])
+			print "Succesfully Connected"
+			print "Storing ..."
+			open("connections.con","a+").write(arg+"\n")
+		except:
+			print "Oops ! problem in connection!, Cant Store!"
+		
+		
 	def do_connect(self,arg):
 		self.cparams = re.split("\s*",arg)
-		self.con = MySQLdb.Connect(host=self.cparams[0], port=3306, user=self.cparams[1], passwd=self.cparams[2] , db=self.cparams[3])
-		
+		try:
+			if len(self.cparams) == 1:
+					for line in open("connections.con","r").readlines():
+						mat = re.split("\s*",line)
+						if mat[0] == self.cparams[0]:
+							self.cparams = []
+							for i in range(0,4):
+								self.cparams.append(mat[i+1])
+							break
+			
+			self.con = MySQLdb.Connect(host=self.cparams[0], port=3306, user=self.cparams[1], passwd=self.cparams[2] , db=self.cparams[3])
+			print "Succesfully Connected"
+		except:
+			print sys.exc_info()
 		
 	def do_mode(self,arg):
 		if arg in ["compile","run"]:
@@ -73,11 +96,12 @@ class  MinQL(Cmd):
 		if self.mode == "run" and self.con == None:
 				print "Type connect command to connect to a database"
 				return
-		get = execute(line,self.con,self.mode)
-		if get != "" and self.mode == "run":
+		
+		get = execute(line,self.cparams,self.mode)
+		if get != False and self.mode == "run":
 			print "Compiled Query: "+get["query"]
 			prettyprint(get["results"])
-		elif get!="" :
+		elif get != False:
 			print get
 		else:
 			print "Un recognized Query/Command"

@@ -90,10 +90,10 @@ def preprocess(input):
 	
 	return input
 		
-def execute(input,con,mode = "Run"):
+def execute(input,cparams,mode = "Run"):
 	query = ""
 	
-	
+	validator = False
 	inputArr = re.split("=>",input)
 	input = inputArr[0].strip(" \n\t")
 	input = preprocess(input)
@@ -102,6 +102,7 @@ def execute(input,con,mode = "Run"):
 	
 		
 	if "<-" in input:
+		validator = True
 		tokens = input.split('<-')
 		if tokens[1].strip(" \n") == "@CONSOLE":
 			symbols[tokens[0].strip()] = raw_input(tokens[0].strip()+": ")
@@ -122,7 +123,7 @@ def execute(input,con,mode = "Run"):
 		
 			
 	elif '->' in input:   
-                
+                validator = True
 		x = re.sub(r'\s->\s',' ',input)
 		y = re.split('->',input)
 		if ':' in y[1]:
@@ -153,6 +154,7 @@ def execute(input,con,mode = "Run"):
 				query = "INSERT INTO "+y[1]+" values("+y[0]+")"
 			
 	elif '#' in input:
+		validator = True
 		x = input.split('#')
 		if x[1]!="":
 			query = "DELETE FROM "+ x[0] + " WHERE " + x[1]
@@ -167,11 +169,19 @@ def execute(input,con,mode = "Run"):
 		if mode != "compile":
 			ret = {}	
 			ret["query"] = query
-			cursor = con.cursor()
-			cursor.execute(query)
-			results = cursor.fetchall()
-			ret["results"] = results
-			con.close()
+			try:
+				con = MySQLdb.Connect(host=cparams[0], port=3306, user=cparams[1], passwd=cparams[2] , db=cparams[3])
+			except:
+				print "Oops ! problem in connection!"
+			try:
+				cursor = con.cursor()
+				cursor.execute(query)
+				results = cursor.fetchall()
+				ret["results"] = results
+				con.close()
+			except:
+				print "Oops Problem In the Query!!"
+				return -1
 			retr = []
 			for ix in ret["results"]:
 				retr.append(list(ix))
@@ -182,6 +192,6 @@ def execute(input,con,mode = "Run"):
 			return ret
 		else:
 			return query		
-	return ""
+	return validator
 
 

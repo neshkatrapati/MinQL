@@ -8,9 +8,9 @@ Running In Interactive Mode
 For now only python minql can do this via the minqli script.
 
 
-[/home]$ python minqli.py -->> [For Interactive Console]               
+	[/home]$ python minqli.py -->> [For Interactive Console]               
 
-[/home]$ python minqli.py --file filename.minql -->> [For File Input]  
+	
 
 
 Syntax
@@ -57,17 +57,28 @@ Features
 
 prompts user for field in Interactive script or takes an array of variables in non interactive script
 
-### Feature in Interactive Script
+# Running the Interactive Script
 
-We may also put to the Console, Or Graphical Alert 
+* Use the Connect command to connect to the database `connect host username pwd dbname`
+
+* Use Store to Store a connection `store conname host username pwd dbname`
+
+* Retrieving that connection `connect conname`
+
+* Help for list of supported commands
+
+* Tutorial command for interactive tutorial
+
+* We may also put to the Console, Or Graphical Alert 
 using @CONSOLE,@GTK Redirectors. 
-
 
 `Hello World My Name is &name -> @CONSOLE`
 
-Similarly We can get inputs from the @CONSOLE,@GTK
+* Similarly We can get inputs from the @CONSOLE,@GTK
 
 **Heads Up @GTK Requires pyGTK2.0!**
+
+
 
 See Also
 ======================
