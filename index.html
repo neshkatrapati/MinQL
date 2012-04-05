@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="MinQL : Minimal Query Language" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>MinQL</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/neshkatrapati/MinQL">Fork Me on GitHub</a>
+
+          <h1 id="project_title">MinQL</h1>
+          <h2 id="project_tagline">Minimal Query Language</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/neshkatrapati/MinQL/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/neshkatrapati/MinQL/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><strong>MinQL</strong> (Pronounced Min - cool) is a minimalistic query language based on the MySQL's Query Language. MinQL is achieved through python and php but, script for ruby also will be available shortly. The syntax goes as follows</p>
+
+<h1>Downloading </h1>
+
+<p><strong>Do a GIT Clone!</strong></p>
+
+<pre><code>    git clone git@github.com:neshkatrapati/MinQL.git
+</code></pre>
+
+<p>Or, Go <a href="https://github.com/neshkatrapati/MinQL">HERE</a> and download it!</p>
+
+<h1>Running In Interactive Mode</h1>
+
+<p>MinQL can be run interactively by using the python script</p>
+
+<pre><code>[/home]$ python minqli.py --&gt;&gt; [For Interactive Console]               
+</code></pre>
+
+<h1>Syntax</h1>
+
+<h3>SELECT</h3>
+
+<ul>
+<li><p><code>* &lt;- table</code>  - Compiles to  <code>SELECT * FROM table</code></p></li>
+<li><p><code>* &lt;- table | age &gt; 25</code>  Compiles to <code>SELECT * FROM table WHERE age&gt;25</code></p></li>
+<li><p><code>* &lt;- table (field)</code> Compiles to <code>SELECT * FROM table ORDER BY (field)</code></p></li>
+<li><p><code>* &lt;- table [field]</code>  Compiles to <code>SELECT * FROM table GROUP BY (field)</code></p></li>
+<li><p><code>* &lt;- table {a,b}</code>  Compiles to <code>SELECT * FROM table LIMIT a,b</code></p></li>
+</ul><h3>CREATE</h3>
+
+<p><code>abc -&gt; a:int,b:text</code> Compiles to <code>CREATE TABLE abc (a int,b text)</code></p>
+
+<h3>INSERT</h3>
+
+<p><code>10,20,30 -&gt; numbers</code> Compiles to <code>INSERT INTO numbers VALUES(10,20,30)</code></p>
+
+<h3>UPDATE</h3>
+
+<p><code>a=a+10 -&gt; mytab | a&gt;10</code> Compiles to <code>UPDATE mytab SET a=a+10 where a&gt;10</code></p>
+
+<h3>DELETE</h3>
+
+<ul>
+<li><p><code>abc #</code> Compiles to <code>DELETE FROM abc</code></p></li>
+<li><p><code>abc # a&gt;10</code> Compiles to <code>DELETE FROM abc WHERE a&gt;10</code></p></li>
+</ul><h3>Others</h3>
+
+<ul>
+<li><p><code>$TABLES</code> - Returns a list of tables</p></li>
+<li><p><code>$DATABASES</code> - Returns a list of databases</p></li>
+</ul><h1>Features</h1>
+
+<p><strong>MinQL</strong> also accepts variables. For Example :</p>
+
+<p><code>&amp;field &lt;- users</code></p>
+
+<p>prompts user for field in Interactive script or takes an array of variables in non interactive script</p>
+
+<h1>Running the Interactive Script</h1>
+
+<ul>
+<li><p>Use the Connect command to connect to the database <code>connect host username pwd dbname</code></p></li>
+<li><p>Use Store to Store a connection <code>store conname host username pwd dbname</code></p></li>
+<li><p>Retrieving that connection <code>connect conname</code></p></li>
+<li><p>Help for list of supported commands</p></li>
+<li><p>Tutorial command for interactive tutorial</p></li>
+<li><p>We may also put to the Console, Or Graphical Alert 
+using <a href="https://github.com/Console" class="user-mention">@Console</a>,<a href="https://github.com/gtk" class="user-mention">@gtk</a> Redirectors. </p></li>
+</ul><p><code>Hello World My Name is &amp;name -&gt; @CONSOLE</code></p>
+
+<ul>
+<li>Similarly We can get inputs from the <a href="https://github.com/Console" class="user-mention">@Console</a>,<a href="https://github.com/gtk" class="user-mention">@gtk</a>
+</li>
+</ul><p><strong>Heads Up <a href="https://github.com/gtk" class="user-mention">@gtk</a> Requires pyGTK2.0!</strong></p>
+
+<h1>See Also</h1>
+
+<ul>
+<li><a href="https://github.com/freeEdu/MinQL/blob/master/python/README.md">Docs for Python</a></li>
+<li><a href="https://github.com/freeEdu/MinQL/blob/master/php/README.md">Docs for PHP</a></li>
+</ul><h1>Its Free Software!</h1>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">MinQL maintained by <a href="https://github.com/neshkatrapati">neshkatrapati</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
